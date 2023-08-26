@@ -1,10 +1,3 @@
 ﻿
 
-
-Timers.Test();
-
-
-
-
-
-
+DeatLock.Test();
