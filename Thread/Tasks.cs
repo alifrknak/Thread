@@ -18,9 +18,9 @@ class Tasks
 		t2.Start();
 
 		Task.WaitAll(t1, t2);
-        
+
 		Console.WriteLine(_data);
-    }
+	}
 
 	//The result may be unexpected due to the race condition.
 	public static void Test2()
@@ -32,7 +32,7 @@ class Tasks
 		t2.Start();
 
 		Task.WaitAll(t1, t2);
-		
+
 		Console.WriteLine(_data);
 	}
 
@@ -48,10 +48,11 @@ class Tasks
 
 	static void WithLock()
 	{
-		for (int i = 0; i < 1000; i++)
+		lock (_lock)
 		{
-			lock (_lock)
+			for (int i = 0; i < 1000; i++)
 			{
+
 				_data++;
 			}
 		}

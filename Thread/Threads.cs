@@ -26,24 +26,23 @@ class Threads
 	// The lock structure prevents the race condition.
 	public static void IncreaseCounter()
 	{
-		for (int i = 0; i < 1000; i++)
+		lock (_lock)
 		{
-			lock (_lock)
+			for (int i = 0; i < 1000; i++)
 			{
 				_counter++;
-
 			}
 		}
 	}
-	
+
 	public static void DecreaseCounter()
 	{
-		for (int i = 0; i < 1000; i++)
+
+		lock (_lock)
 		{
-			lock (_lock)
+			for (int i = 0; i < 1000; i++)
 			{
 				_counter--;
-
 			}
 		}
 	}
