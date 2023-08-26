@@ -1,3 +1,3 @@
 ﻿
 
-DeatLock.Test();
+DeadLock.Test();

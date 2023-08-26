@@ -1,7 +1,7 @@
 ﻿
 
 
-public class DeatLock
+public class DeadLock
 {
 
 
