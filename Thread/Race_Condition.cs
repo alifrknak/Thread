@@ -1,8 +1,7 @@
 ﻿
 
 namespace teste;
-
-class Threads
+class Race_Condition
 {
 
 	private static readonly object _lock = new object();
@@ -26,9 +25,10 @@ class Threads
 	// The lock structure prevents the race condition.
 	public static void IncreaseCounter()
 	{
-		lock (_lock)
+		
+		for (int i = 0; i < 1000; i++)
 		{
-			for (int i = 0; i < 1000; i++)
+			lock (_lock)
 			{
 				_counter++;
 			}
@@ -38,9 +38,10 @@ class Threads
 	public static void DecreaseCounter()
 	{
 
-		lock (_lock)
+		
+		for (int i = 0; i < 1000; i++)
 		{
-			for (int i = 0; i < 1000; i++)
+			lock (_lock)
 			{
 				_counter--;
 			}
